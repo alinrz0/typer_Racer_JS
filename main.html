@@ -17,7 +17,7 @@
                     <div class="lblName" style="white-space: nowrap;">Guest</div>
                     <span class="lblUsername">(you)</span>
                 </div>
-                <img src="/icon/1.png" alt="Icon" class="icon">
+                <img id="randomCarImage" alt="Icon" class="icon">
             </div>
             <div class="right-section">
                 <p>0 wpm</p>
@@ -29,13 +29,17 @@
         </div>
         
         <div class="input-panel">
-            <div class="text-display">
-                <span class="regular">Picking up the pieces, half alive in a nine 'til five, vacant eyes, is it any wonder? Primal scream at the TV screen, close your eyes. Now the world is too much with me. Please leave, just go away. Before I lose my mind completely, just leave, please go now.</span>
+            <div class="text-display" id="randomTextDisplay">
+                <!-- Random text will be inserted here -->
             </div>
-            <!-- <div class="caret" id="smoothCaret"></div> -->
             <a class="display-format-trigger">Change Display Format</a>
             <input type="text" class="text-input" autocorrect="off" autocapitalize="off" maxlength="13">
-            <img class="help-icon" src="https://play.typeracer.com/com.typeracer.redesign.Redesign/clear.cache.gif" alt="Help Icon">
+            <div class="help-icon"></div>
+        </div>
+        
+
+        <div class="restart-button-container">
+            <button class="restart-button">Restart</button>
         </div>
         
     </div>

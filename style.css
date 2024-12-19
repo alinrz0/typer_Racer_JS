@@ -19,9 +19,8 @@ body {
 }
 
 .top-left {
-    margin-bottom: 20px;
     font-weight: bold;
-    font-size: 14px;
+    font-size: 10px;
     color: #3B5998;
 }
 
@@ -76,9 +75,6 @@ body {
 .text-display{
     padding-left: 10px;
     padding-right: 10px;
-}
-
-.text-display .regular {
     color: #333;
 }
 
@@ -87,7 +83,7 @@ body {
     text-align: right;
     margin-top: 10px;
     font-size: 14px;
-    color: #007BFF;
+    color: #0055b0;
     text-decoration: none;
     cursor: pointer;
     padding-right: 10px;
@@ -112,9 +108,28 @@ body {
     display: block;
     width: 24px;
     height: 24px;
-    background: url(https://play.typeracer.com/com.typeracer.redesign.Redesign/B7496B103318F476B179891EF1D2ED36.cache.png) no-repeat -256px -24px;
+    background: url(icon/help.png) no-repeat -256px -24px;
     padding-bottom: 20px;
     margin-top: 10px;
     margin-left: auto;
     margin-right: 10px;
+}
+
+.restart-button-container{
+    margin-top: 20px;
+    height: 50px;
+}
+
+.restart-button{
+    background-color: #ffa500;
+    border: none;
+    color: white;
+    width: 20%;
+    height: 100%;
+    border-radius: 4px;
+    font-size: medium;
+}
+
+.restart-button:hover{
+    background-color: #ef9b00;
 }
