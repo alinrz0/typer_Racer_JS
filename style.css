@@ -12,8 +12,7 @@ body {
 
 .center-box {
     background-color: white;
-    width: 1000px;
-    height: 500px;
+    width: 750px;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
@@ -22,7 +21,7 @@ body {
 .top-left {
     margin-bottom: 20px;
     font-weight: bold;
-    font-size: 120%;
+    font-size: 14px;
     color: #3B5998;
 }
 
@@ -31,6 +30,8 @@ body {
     justify-content: space-between;
     align-items: center;
     color: #638e8e;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
 }
 
 .left-section {
@@ -52,9 +53,68 @@ body {
     background-repeat: no-repeat;
     background-position: center center;
     width: 72px;
-    height: 72px;
 }
 
 .right-section {
     text-align: right;
+}
+
+.road{
+    margin-top: -2rem;
+    color: #fdcd1f;
+}
+
+.input-panel {
+    width: 100%;
+    font-family: monospace;
+    font-size: 20px;
+    background-color: #d1f1ff;
+    border-radius: 10px;
+    padding-top: 26px;
+}
+
+.text-display{
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.text-display .regular {
+    color: #333;
+}
+
+.display-format-trigger {
+    display: block;
+    text-align: right;
+    margin-top: 10px;
+    font-size: 14px;
+    color: #007BFF;
+    text-decoration: none;
+    cursor: pointer;
+    padding-right: 10px;
+    margin-bottom: 10px;
+    margin-top: 20px;
+}
+
+.display-format-trigger:hover{
+    text-decoration: underline;
+}
+
+.text-input {
+    width: 95%;
+    font-size: 16px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-left: 12px;
+}
+
+.help-icon {
+    display: block;
+    width: 24px;
+    height: 24px;
+    background: url(https://play.typeracer.com/com.typeracer.redesign.Redesign/B7496B103318F476B179891EF1D2ED36.cache.png) no-repeat -256px -24px;
+    padding-bottom: 20px;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: 10px;
 }
