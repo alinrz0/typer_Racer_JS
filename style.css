@@ -78,6 +78,7 @@ body {
     color: #333;
 }
 
+
 .display-format-trigger {
     display: block;
     text-align: right;
@@ -132,4 +133,16 @@ body {
 
 .restart-button:hover{
     background-color: #ef9b00;
+}
+
+
+
+/* Correct word in green */
+.correct {
+    color: green;
+}
+
+/* Incorrect word with red background */
+.incorrect {
+    background-color: red;
 }

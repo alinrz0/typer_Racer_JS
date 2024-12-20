@@ -45,3 +45,36 @@ function setRandomText() {
 
 // Call the function when the script is loaded
 setRandomText();
+
+
+
+function handleTyping(randomTextDisplayId, textInputId) {
+    const randomTextDisplay = document.getElementById(randomTextDisplayId);
+    const textInput = document.getElementById(textInputId);
+
+    const randomText = randomTextDisplay.innerText;
+    randomTextDisplay.textContent = randomText;
+
+    textInput.addEventListener("input", () => {
+        const inputText = textInput.value;
+        let firstMistake = false; 
+        const highlightedText = randomText
+            .split("")
+            .map((char, index) => {
+                if (inputText[index] === undefined) {
+                    return char; 
+                } else if (firstMistake || inputText[index] !== char) {
+                    firstMistake = true; 
+                    return `<span class='incorrect'>${char}</span>`;
+                } else {
+                    return `<span class='correct'>${char}</span>`;
+                }
+            })
+            .join("");
+
+        randomTextDisplay.innerHTML = highlightedText;
+    });
+}
+
+handleTyping("randomTextDisplay", "textInput");
+
