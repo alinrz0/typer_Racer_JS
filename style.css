@@ -146,3 +146,17 @@ body {
 .incorrect {
     background-color: red;
 }
+
+.blinker {
+    display: inline-block;
+    width: 2px;
+    background-color: black;
+    color: transparent;
+    animation: blink 1s step-start infinite;
+}
+
+@keyframes blink {
+    50% {
+        background-color: transparent;
+    }
+}

@@ -55,16 +55,22 @@ function handleTyping(randomTextDisplayId, textInputId) {
     const randomText = randomTextDisplay.innerText;
     randomTextDisplay.textContent = randomText;
 
-    textInput.addEventListener("input", () => {
-        const inputText = textInput.value;
-        let firstMistake = false; 
+    let correctWordTyped = ""; // Keep track of correctly typed text
+
+    function updateDisplay() {
+        const inputText = correctWordTyped + textInput.value; // Combine correct words with current input
+        firstMistake = false; // Reset mistake tracking for current input
+
         const highlightedText = randomText
             .split("")
             .map((char, index) => {
                 if (inputText[index] === undefined) {
-                    return char; 
+                    if (index === inputText.length) {
+                        return `<span class='blinker'>|</span>${char}`; // Add blinker before the next letter to type
+                    }
+                    return char; // No input yet
                 } else if (firstMistake || inputText[index] !== char) {
-                    firstMistake = true; 
+                    firstMistake = true; // Mark as first mistake
                     return `<span class='incorrect'>${char}</span>`;
                 } else {
                     return `<span class='correct'>${char}</span>`;
@@ -73,8 +79,22 @@ function handleTyping(randomTextDisplayId, textInputId) {
             .join("");
 
         randomTextDisplay.innerHTML = highlightedText;
+    }
+
+    // Initialize display with blinker before the first letter
+    updateDisplay();
+
+    textInput.addEventListener("input", () => {
+        updateDisplay();
+
+        // Clear input after space if all previous characters were correct
+        if (textInput.value.endsWith(" ") && !firstMistake) {
+            correctWordTyped += textInput.value; // Add correct input to tracked text
+            textInput.value = ""; // Clear the input field
+        }
     });
 }
 
-handleTyping("randomTextDisplay", "textInput");
 
+// Initialize the function with appropriate IDs
+handleTyping("randomTextDisplay", "textInput");
