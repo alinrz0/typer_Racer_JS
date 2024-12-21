@@ -51,11 +51,20 @@ setRandomText();
 function handleTyping(randomTextDisplayId, textInputId) {
     const randomTextDisplay = document.getElementById(randomTextDisplayId);
     const textInput = document.getElementById(textInputId);
+    const timerElement = document.querySelector(".timer");
+    const inputPanel = document.querySelector(".input-panel");
+    const wpm = document.querySelector(".right-section");
+    const leftSection = document.querySelector(".left-section");
+
+    let timerActive = false; // To track if the timer has started
+    let correctWordTyped = ""; // Keep track of correctly typed text
+    let firstMistake = false; // Reset mistake tracking for current input
+    let wordCount = 0; // Count words typed correctly
+    let startTime = null; // Track the start time
+    let leftSectionOffset = 0; // Current offset for moving `.left-section`
 
     const randomText = randomTextDisplay.innerText;
     randomTextDisplay.textContent = randomText;
-
-    let correctWordTyped = ""; // Keep track of correctly typed text
 
     function updateDisplay() {
         const inputText = correctWordTyped + textInput.value; // Combine correct words with current input
@@ -81,20 +90,69 @@ function handleTyping(randomTextDisplayId, textInputId) {
         randomTextDisplay.innerHTML = highlightedText;
     }
 
+    function moveLeftSection() {
+        leftSectionOffset += 20; // Increment the offset for movement
+        leftSection.style.marginLeft = `${leftSectionOffset}px`; // Apply the new margin
+    }
+
+    function updateWPM() {
+        if (!startTime) return; // If no typing has started yet, skip
+
+        const elapsedTime = (new Date() - startTime) / 60000; // Time in minutes
+        const wordsPerMinute = elapsedTime > 0 ? Math.round(wordCount / elapsedTime) : 0;
+        wpm.textContent = `${wordsPerMinute} words/minute`;
+    }
+
+    // Function to show and start the timer
+    function activateTimer() {
+        timerElement.style.display = "inline"; // Show the timer
+        startTime = new Date(); // Record the starting time
+        let timeLeft = 120; // Timer starts at 2:00 (120 seconds)
+
+        const timerInterval = setInterval(() => {
+            const minutes = Math.floor(timeLeft / 60);
+            const seconds = timeLeft % 60;
+            timerElement.textContent = `${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
+            
+            if (timeLeft <= 0) {
+                clearInterval(timerInterval); // Stop timer when it reaches 0
+                inputPanel.style.display = "none"; // Hide the input panel
+            }
+
+            timeLeft--; // Decrease time
+        }, 1000);
+
+        // Start updating WPM every second
+        setInterval(updateWPM, 1000);
+    }
+
     // Initialize display with blinker before the first letter
     updateDisplay();
 
     textInput.addEventListener("input", () => {
+        // Start timer when the first character is typed
+        if (!timerActive && textInput.value.length > 0) {
+            timerActive = true;
+            activateTimer();
+        }
+
         updateDisplay();
 
         // Clear input after space if all previous characters were correct
         if (textInput.value.endsWith(" ") && !firstMistake) {
             correctWordTyped += textInput.value; // Add correct input to tracked text
             textInput.value = ""; // Clear the input field
+            wordCount++; // Increment word count
+
+            // Move the left-section
+            moveLeftSection();
         }
     });
 }
 
-
 // Initialize the function with appropriate IDs
 handleTyping("randomTextDisplay", "textInput");
+
+function restartPage() {
+    location.reload(); // This will refresh the page
+}

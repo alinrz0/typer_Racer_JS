@@ -8,9 +8,11 @@
 </head>
 <body>
     <div class="center-box">
-        <div class="top-left">
+        <div class="top">
             <h1>The race is on! Type the text below:</h1>
+            <div class="timer">2:00</div>
         </div>
+        
         <div class="content">
             <div class="left-section">
                 <div class="nameContainer">
@@ -36,11 +38,9 @@
             <input type="text" id="textInput" class="text-input" autocorrect="off" autocapitalize="off" maxlength="500">
             <div class="help-icon"></div>
         </div>
-        
-        
 
         <div class="restart-button-container">
-            <button class="restart-button">Restart</button>
+            <button class="restart-button" onclick="restartPage()">Restart</button>
         </div>
         
     </div>

@@ -18,11 +18,21 @@ body {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
-.top-left {
+.top {
     font-weight: bold;
     font-size: 10px;
     color: #3B5998;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
+
+.timer {
+    font-size: 18px;
+    color: #000;
+    display: none;
+}
+
 
 .content {
     display: flex;
@@ -36,6 +46,7 @@ body {
 .left-section {
     display: flex;
     align-items: center;
+    transition: margin-left 0.3s ease; 
 }
 
 .nameContainer {
