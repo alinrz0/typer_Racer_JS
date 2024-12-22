@@ -37,27 +37,37 @@
             <a class="display-format-trigger" id="formatTrigger">Change Display Format</a>
             <input type="text" id="textInput" class="text-input" autocorrect="off" autocapitalize="off" maxlength="500">
             <div class="help-icon"></div>
+            <div class="popup">
+                <div class="popup-header">
+                    <div class="title">
+                        <div class="help-icon"></div>
+                        <span >How to play</span>
+                    </div>
+                    <button class="close-btn">&times;</button>
+                </div>
+                <div class="popup-content">
+                    In this game, you type a given passage as quickly and accurately as possible. Your speed is measured in words per minute (WPM), and accuracy is calculated based on the number of errors. To improve, focus on practicing regularly and minimizing typos. Use the "Restart Race" button to try again or challenge yourself with a new passage!
+                </div>
+            </div>
         </div>
 
-        <!-- Modal for font size adjustment -->
-        <div id="fontSizeModal" class="modal">
+        <!-- Modal for font family adjustment -->
+        <div id="fontFamilyModal" class="modal">
             <div class="modal-content">
                 <span class="close-button" id="closeModal">&times;</span>
                 <div>
-                    <label for="fontSizeInput">Font Size:</label>
-                    <select id="fontSizeInput">
-                        <option value="14">14</option>
-                        <option value="16">16</option>
-                        <option value="20" selected>20</option>
-                        <option value="24">24</option>
-                        <option value="32">32</option>
+                    <label for="fontFamilyInput">Font Family:</label>
+                    <select id="fontFamilyInput">
+                        <option value="Arial">Arial</option>
+                        <option value="Courier New">Courier New</option>
+                        <option value="Georgia">Georgia</option>
+                        <option value="Times New Roman" selected>Times New Roman</option>
+                        <option value="Verdana">Verdana</option>
                     </select>
                 </div>
-                <button id="applyFontSize">Apply</button>
+                <button id="applyFontFamily">Apply</button>
             </div>
         </div>
-        
-
 
         <div class="restart-button-container">
             <button class="restart-button" onclick="restartPage()">Restart</button>

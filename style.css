@@ -174,9 +174,8 @@ body {
 
 
 
-
-/* Modal styling */
 .modal {
+    display: none;
     position: fixed;
     top: 50%;
     left: 50%;
@@ -188,7 +187,6 @@ body {
     animation: fadeIn 0.3s;
 }
 
-/* Modal content styling */
 .modal-content {
     padding: 20px;
     background-color: #fff;
@@ -199,7 +197,6 @@ body {
     gap: 10px;
 }
 
-/* Close button */
 .close-button {
     font-size: 24px;
     font-weight: bold;
@@ -208,7 +205,6 @@ body {
     align-self: flex-end;
 }
 
-/* Button styling */
 .modal-content button {
     padding: 10px 20px;
     background-color: #007BFF;
@@ -219,13 +215,11 @@ body {
     font-size: 16px;
 }
 
-/* Button hover effect */
 .modal-content button:hover {
-    background-color: #010d1a;
+    background-color: #006ee4;
 }
 
-/* Select dropdown and label styling */
-#fontSizeInput {
+#fontFamilyInput {
     padding: 8px;
     border: 1px solid #ddd;
     border-radius: 4px;
@@ -235,7 +229,6 @@ label {
     font-size: 16px;
 }
 
-/* Modal fade-in effect */
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -243,4 +236,58 @@ label {
     to {
         opacity: 1;
     }
+}
+
+
+
+
+.popup {
+    display: none;
+    position: absolute;
+    bottom: 30px;
+    left: 60%;
+    transform: translateX(-50%);
+    width: 300px;
+    background-color: white;
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    z-index: 10;
+    padding: 16px;
+    font-family: Arial, sans-serif;
+}
+
+.popup-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 12px;
+}
+
+.popup-header .title {
+    font-size: 16px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+}
+
+.popup-header .close-btn {
+    background: none;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    color: #999;
+}
+
+.popup-header .close-btn:hover {
+    color: #333;
+}
+
+.popup-content {
+    font-size: 14px;
+    color: #555;
+}
+
+.help-icon:hover + .popup {
+    display: block;
 }

@@ -162,15 +162,18 @@ function restartPage() {
 
 
 document.getElementById('formatTrigger').addEventListener('click', () => {
-    document.getElementById('fontSizeModal').style.display = 'block';
+    document.getElementById('fontFamilyModal').style.display = 'block';
 });
 
 document.getElementById('closeModal').addEventListener('click', () => {
-    document.getElementById('fontSizeModal').style.display = 'none';
+    document.getElementById('fontFamilyModal').style.display = 'none';
 });
 
-document.getElementById('applyFontSize').addEventListener('click', () => {
-    const fontSize = document.getElementById('fontSizeInput').value;
-    document.getElementById('randomTextDisplay').style.fontSize = fontSize + 'px';
-    document.getElementById('fontSizeModal').style.display = 'none';
+document.getElementById('applyFontFamily').addEventListener('click', () => {
+    const fontFamily = document.getElementById('fontFamilyInput').value;
+    document.getElementById('randomTextDisplay').style.fontFamily = fontFamily;
+    document.getElementById('fontFamilyModal').style.display = 'none';
 });
+
+
+
