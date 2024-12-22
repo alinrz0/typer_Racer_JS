@@ -34,10 +34,30 @@
             <div class="text-display" id="randomTextDisplay">
                 <!-- Random text will be inserted here -->
             </div>
-            <a class="display-format-trigger">Change Display Format</a>
+            <a class="display-format-trigger" id="formatTrigger">Change Display Format</a>
             <input type="text" id="textInput" class="text-input" autocorrect="off" autocapitalize="off" maxlength="500">
             <div class="help-icon"></div>
         </div>
+
+        <!-- Modal for font size adjustment -->
+        <div id="fontSizeModal" class="modal">
+            <div class="modal-content">
+                <span class="close-button" id="closeModal">&times;</span>
+                <div>
+                    <label for="fontSizeInput">Font Size:</label>
+                    <select id="fontSizeInput">
+                        <option value="14">14</option>
+                        <option value="16">16</option>
+                        <option value="20" selected>20</option>
+                        <option value="24">24</option>
+                        <option value="32">32</option>
+                    </select>
+                </div>
+                <button id="applyFontSize">Apply</button>
+            </div>
+        </div>
+        
+
 
         <div class="restart-button-container">
             <button class="restart-button" onclick="restartPage()">Restart</button>

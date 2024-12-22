@@ -55,6 +55,7 @@ function handleTyping(randomTextDisplayId, textInputId) {
     const inputPanel = document.querySelector(".input-panel");
     const wpm = document.querySelector(".right-section");
     const leftSection = document.querySelector(".left-section");
+    const totalWordsInText = randomTextDisplay.innerText.split(/\s+/).filter(word => word.length > 0).length;
 
     let timerActive = false; // To track if the timer has started
     let correctWordTyped = ""; // Keep track of correctly typed text
@@ -91,7 +92,7 @@ function handleTyping(randomTextDisplayId, textInputId) {
     }
 
     function moveLeftSection() {
-        leftSectionOffset += 20; // Increment the offset for movement
+        leftSectionOffset += 500/totalWordsInText; // Increment the offset for movement
         leftSection.style.marginLeft = `${leftSectionOffset}px`; // Apply the new margin
     }
 
@@ -100,7 +101,7 @@ function handleTyping(randomTextDisplayId, textInputId) {
 
         const elapsedTime = (new Date() - startTime) / 60000; // Time in minutes
         const wordsPerMinute = elapsedTime > 0 ? Math.round(wordCount / elapsedTime) : 0;
-        wpm.textContent = `${wordsPerMinute} words/minute`;
+        wpm.textContent = `${wordsPerMinute} wpm`;
     }
 
     // Function to show and start the timer
@@ -148,6 +149,7 @@ function handleTyping(randomTextDisplayId, textInputId) {
             moveLeftSection();
         }
     });
+
 }
 
 // Initialize the function with appropriate IDs
@@ -156,3 +158,19 @@ handleTyping("randomTextDisplay", "textInput");
 function restartPage() {
     location.reload(); // This will refresh the page
 }
+
+
+
+document.getElementById('formatTrigger').addEventListener('click', () => {
+    document.getElementById('fontSizeModal').style.display = 'block';
+});
+
+document.getElementById('closeModal').addEventListener('click', () => {
+    document.getElementById('fontSizeModal').style.display = 'none';
+});
+
+document.getElementById('applyFontSize').addEventListener('click', () => {
+    const fontSize = document.getElementById('fontSizeInput').value;
+    document.getElementById('randomTextDisplay').style.fontSize = fontSize + 'px';
+    document.getElementById('fontSizeModal').style.display = 'none';
+});
